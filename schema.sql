@@ -1,7 +1,7 @@
-create table _newsletters_template
+create table users
 (
-    id          bigserial primary key,
-    description varchar(255)                        null,
-    created_at  timestamp default CURRENT_TIMESTAMP not null,
-    updated_at  timestamp default CURRENT_TIMESTAMP not null
-);
+    id         bigint unsigned auto_increment primary key,
+    name       varchar(100) not null,
+    created_at datetime     not null default CURRENT_TIMESTAMP,
+    updated_at datetime     not null default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP
+) engine = InnoDB;
