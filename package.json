@@ -1,0 +1,49 @@
+{
+  "name": "leaderboard-redis",
+  "version": "1.0.0",
+  "description": "Leaderboard implementation in Redis using Sorted Sets and Node.js",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "serve:development": "nodemon --env-file=.env src/index.js",
+    "serve:production": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcomoauro/leaderboard-redis.git"
+  },
+  "keywords": [
+    "leaderboard",
+    "redis",
+    "sorted sets",
+    "node.js"
+  ],
+  "author": "Marco Moauro <marcomoauro@hotmail.it>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcomoauro/leaderboard-redis/issues"
+  },
+  "homepage": "https://github.com/marcomoauro/leaderboard-redis#readme",
+  "dependencies": {
+    "@koa/cors": "5.0.0",
+    "@koa/router": "12.0.1",
+    "axios": "1.6.8",
+    "ioredis": "5.4.1",
+    "jsonwebtoken": "9.0.2",
+    "koa": "2.15.3",
+    "koa-better-json": "2.5.0",
+    "koa-better-log": "1.0.5",
+    "koa-body": "6.0.1",
+    "lodash": "4.17.21",
+    "luxon": "^3.4.4",
+    "memoizee": "0.4.15",
+    "mysql2": "3.9.7",
+    "nano-id": "1.1.0",
+    "nodemailer": "6.9.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
