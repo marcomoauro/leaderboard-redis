@@ -8,14 +8,6 @@ export class Leaderboard {
   static getByScore = async (limit) => {
     log.info('Model::Leaderboard::getByScore', { limit })
 
-    const leaderboard = await this.#computeLeaderboard(limit);
-
-    return leaderboard
-  }
-
-  static #computeLeaderboard = async (limit) => {
-    log.info('Model::Leaderboard::computeLeaderboard', { limit })
-
     const raw_leaderboard = await this.#getRawLeaderboard(limit);
 
     const leaderboard = [];
