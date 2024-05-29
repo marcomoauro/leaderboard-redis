@@ -1,0 +1,29 @@
+@startuml
+
+entity "users" {
+  id : PK
+  --
+  name: string
+  created_at: datetime
+  updated_at: datetime
+}
+
+entity "leaderboards" {
+  id : PK
+  --
+  prize: number
+  created_at: datetime
+  updated_at: datetime
+}
+
+entity "users_leaderboards" {
+  id: PK
+  --
+  user_id: FK(users.id)
+  leaderboard_id: FK(leaderboards.id)
+}
+
+users ||--|| users_leaderboards
+leaderboards ||--|| users_leaderboards
+
+@enduml

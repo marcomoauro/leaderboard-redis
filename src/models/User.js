@@ -23,6 +23,10 @@ export default class User {
   static list = async (ids) => {
     log.info('Model::User::list', {ids})
 
+    if (ids?.length === 0) {
+      return []
+    }
+
     const params = []
 
     let query_sql = `

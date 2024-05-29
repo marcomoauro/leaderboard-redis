@@ -5,12 +5,19 @@ import {Leaderboard} from "../src/models/Leaderboard.js";
 const main = async () => {
   log.info('Start updating leaderboard scores')
 
+  const daily_leaderboard = new Leaderboard('leaderboard')
+
   if (isScoreResetTime()) {
-    await Leaderboard.reset()
+    const wins_leaderboard = new Leaderboard('wins_leaderboard')
+
+    const top_user_id = await daily_leaderboard.getTopUserIdByRank()
+    await wins_leaderboard.incrementScore(top_user_id, 1)
+
+    await daily_leaderboard.reset()
   }
 
   const users = await User.list()
-  await incrementUsersScore(users)
+  await incrementUsersScore(daily_leaderboard, users)
 
   process.exit(0)
 }
@@ -20,10 +27,10 @@ const isScoreResetTime = () => {
   return actual_hour === 0
 }
 
-const incrementUsersScore = async (users) => {
+const incrementUsersScore = async (daily_leaderboard, users) => {
   for (const user of users) {
     const score = computeRandomScore()
-    await Leaderboard.incrementScore(user.id, score)
+    await daily_leaderboard.incrementScore(user.id, score)
   }
 }
 
