@@ -1,0 +1,11 @@
+@startuml
+
+entity "users" {
+  id : PK
+  --
+  name: string
+  created_at: datetime
+  updated_at: datetime
+}
+
+@enduml

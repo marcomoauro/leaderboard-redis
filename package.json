@@ -9,7 +9,8 @@
   "scripts": {
     "serve:development": "nodemon --env-file=.env src/index.js",
     "serve:production": "node src/index.js",
-    "update_leaderboard_scores": "node --env-file=.env bin/update_leaderboard_scores.js"
+    "local__update_leaderboard_scores": "node --env-file=.env bin/update_leaderboard_scores.js",
+    "update_leaderboard_scores": "node bin/update_leaderboard_scores.js"
   },
   "repository": {
     "type": "git",
