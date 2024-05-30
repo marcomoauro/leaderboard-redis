@@ -9,6 +9,14 @@ export class Leaderboard {
     this.#cache_key = name;
   }
 
+  static getScoreLeaderboard = () => {
+    return new Leaderboard('leaderboard')
+  }
+
+  static getWinsLeaderboard = () => {
+    return new Leaderboard('wins_leaderboard')
+  }
+
   getByScore = async (limit) => {
     log.info('Model::Leaderboard::getByScore', { limit })
 

@@ -5,10 +5,10 @@ import {Leaderboard} from "../src/models/Leaderboard.js";
 const main = async () => {
   log.info('Start updating leaderboard scores')
 
-  const daily_leaderboard = new Leaderboard('leaderboard')
+  const daily_leaderboard = Leaderboard.getScoreLeaderboard()
 
   if (isScoreResetTime()) {
-    const wins_leaderboard = new Leaderboard('wins_leaderboard')
+    const wins_leaderboard = Leaderboard.getWinsLeaderboard()
 
     const top_user_id = await daily_leaderboard.getTopUserIdByRank()
     await wins_leaderboard.incrementScore(top_user_id, 1)
